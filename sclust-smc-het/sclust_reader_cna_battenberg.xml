@@ -1,0 +1,19 @@
+<?xml version="1.0" ?><tool id="sclust_2" name="Sclust - 2: CNA - Battenberg" version="0.1.0">                                       
+    <description/>                                                              
+    <requirements>                                                                                       
+        <container type="docker">docker.synapse.org/syn2813581/6181088/r-base</container>                                                      
+    </requirements>                                                                                      
+    <stdio>                                                                                              
+        <exit_code range="1:"/>                                                                          
+    </stdio>                                                                                             
+    <command interpreter="Rscript">                                                                      
+        sclust_reader_cna_battenberg.R ${cna_battenberg}                                                                      
+    </command>                                                                                           
+    <inputs>                                                                                             
+        <param format="txt" help="" label="Battenberg CNA" name="cna_battenberg" type="data"/>
+    </inputs>                                                                                            
+    <outputs>                                                                                            
+        <data format="txt" from_work_dir="sclust.txt" label="Sclust CNA" name="cna_sclust"/>                                  
+    </outputs>                                                                                           
+    <help/>                                                                                        
+</tool>

@@ -1,0 +1,20 @@
+<?xml version="1.0" ?><tool id="sclust_1" name="Sclust - 1: SNV - MuTect" version="0.1.0">                                       
+    <description/>                                                              
+    <requirements>                                                                                       
+        <container type="docker">docker.synapse.org/syn2813581/6181088/r-base</container>                                                      
+    </requirements>                                                                                      
+    <stdio>                                                                                              
+        <exit_code range="1:"/>                                                                          
+    </stdio>                                                                                             
+    <command interpreter="Rscript">                                                                      
+        sclust_reader_snv_mutect.R ${snv_mutect}                                                           
+    </command>                                                                                           
+    <inputs>                                                                                             
+        <param format="vcf" help="" label="MuTect SNV" name="snv_mutect" type="data"/>
+    </inputs>
+    <outputs>
+        <data format="vcf" from_work_dir="sclust.vcf" label="Sclust SNV" name="snv_sclust"/>                                
+        <data format="txt" from_work_dir="sclust_position.txt" label="Original SNV positions" name="sclust_position"/>  
+    </outputs>                                                                                           
+    <help/>                                                                                        
+</tool>

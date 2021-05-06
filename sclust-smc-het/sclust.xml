@@ -1,0 +1,21 @@
+<?xml version="1.0" ?><tool id="sclust_4" name="Sclust - 4: Mutational clustering" version="0.1.0">                                       
+    <description/>                                                              
+    <requirements>                                                                                       
+        <container type="docker">docker.synapse.org/syn2813581/6181088/sclust</container>                                                      
+    </requirements>                                                                                      
+    <stdio>                                                                                              
+        <exit_code range="1:"/>                                                                          
+    </stdio>                                                                             
+    <command><![CDATA[
+        /opt/sclust-smc-het/Sclust -i ${sclust_vaf} -o sclust
+    ]]></command>                                                                                           
+    <inputs> 
+        <param format="txt" help="" label="Sclust VAF" name="sclust_vaf" type="data"/>
+    </inputs>                                                                                            
+    <outputs>                                                                                                                            
+        <data format="pdf" from_work_dir="sclust_mcluster.pdf" label="Sclust mcluster" name="sclust_mcluster"/>
+        <data format="txt" from_work_dir="sclust_cluster_assignments.txt" label="Sclust cluster assignments" name="sclust_cluster_assignments"/>
+        <data format="txt" from_work_dir="sclust_mclusters.txt" label="Sclust mclusters" name="sclust_mclusters"/>
+    </outputs>
+    <help/>                                                                                        
+</tool>
